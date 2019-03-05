@@ -16,6 +16,9 @@ def main():
             elif customer_choice == 3:
                 atm.change_secret_code()
                 continue
+            elif customer_choice == 4:
+                print("Thank you for choosing our ATM services, good bye!")
+                break
 
         else:
             print("Wrong code number!\n")
