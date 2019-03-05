@@ -10,6 +10,25 @@ def main():
         print("This is a tie!")
 
 
+def make_slants_list(games):
+    """
+    making a list of all the possible slants
+    to check who is the winner.
+    :param games:
+    :return:
+    """
+    first_slant = []
+    second_slant = []
+    for i in range(3):
+        first_slant.append(games[i][i])
+
+    for z, j in zip(range(2, -1), range(3)):
+        second_slant.append(games[z][j])
+
+    games.append(first_slant)
+    games.append(second_slant)
+
+
 def check_identical_items_list(ls):
     """
     counting if a number repeats 3 times to check winning.
