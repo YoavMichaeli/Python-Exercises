@@ -1,5 +1,14 @@
 def main():
     atm = ATM()
+    start_atm_machine(atm)
+
+
+def start_atm_machine(atm):
+    """
+    Starting atm machine to serve clients.
+    :param atm:
+    :return:
+    """
     while True:
         code_number = input("Welcome to ATM services!\n"
                             "Please enter secret code number: **** \n")
@@ -29,15 +38,18 @@ def main():
 
 
 class ATM:
+
     def __init__(self, secret_code='1234', amount_of_money=3000):
             self._secret_code = secret_code
             self._amount_of_money = amount_of_money
 
+    # Checking if the secret code is valid
     def secret_code_check(self, secret_code):
             if secret_code == self._secret_code:
                 return True
             return False
 
+    # Printing ATM menu
     def print_menu(self):
         print("\n{0}\n{1}\n{2}\n{3}\n{4}".format("Welcome to your customer account!",
                                                  "Press 1 to print your account balance",
@@ -45,11 +57,14 @@ class ATM:
                                                  "Press 3 to change your secret code number",
                                                  "Press 4 to exit"))
 
+    # Printing the amount of money in the current account
     def print_amount_of_money(self):
             print("{0}{1}\n".format("Account balance is: ", self._amount_of_money))
 
+    # Withdraw money from the current account
     def withdraw_money(self):
         current_amount_of_money = self._amount_of_money
+        # Checking whether there is money in the account
         if self._amount_of_money == 0:
             print("You don't have money in your account.\n")
             return
@@ -65,15 +80,19 @@ class ATM:
                 self._amount_of_money -= other_amount
         if self._amount_of_money < current_amount_of_money:
             print("Money withdrawal has been made successfully!\n")
-        else:
+        elif customer_choice in ['1', '2', '3']:
             print("You don't have enough money to make this transaction.\n")
+        else:
+            print("Wrong input!\n")
 
+    # Printing the withdrawal menu
     def withdraw_money_menu(self):
         print("{0}\n{1}\n{2}\n{3}".format("Please choose an amount of money to withdraw:",
                                           "Press 1 to withdraw 20$",
                                           "Press 2 to withdraw 50$",
                                           "Press 3 to withdraw other amount"))
 
+    # Changing secret code of the current account
     def change_secret_code(self):
         new_code = input("Enter new secret code: ")
         valid_flag = self.secret_code_input_check(new_code)
@@ -83,6 +102,7 @@ class ATM:
         self._secret_code = new_code
         print("New secret code has been changed successfully!\n")
 
+    # Checking secret code input's validity
     def secret_code_input_check(self, secret_code):
         if len(secret_code) == 4:
             for code in secret_code:
