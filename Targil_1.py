@@ -86,7 +86,7 @@ class ATM:
     def secret_code_input_check(self, secret_code):
         if len(secret_code) == 4:
             for code in secret_code:
-                if (code > '9') or (code < '0'):
+                if code.isdigit() is False:
                     return False
             return True
         else:
