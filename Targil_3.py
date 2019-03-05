@@ -10,6 +10,23 @@ def main():
         print("This is a tie!")
 
 
+def win_check(games):
+    """
+    making a list of all the possible rows(the rows lists already exist
+    in the original game list), cols and slants
+    to check who is the winner.
+    :param games:
+    :return: the winner number
+    """
+    make_cols_list(games)
+    make_slants_list(games)
+
+    for game in games:
+        if check_identical_items_list(game):
+            return game[0]
+    return 0
+
+
 def make_cols_list(games):
     """
     making a list of all the possible cols
