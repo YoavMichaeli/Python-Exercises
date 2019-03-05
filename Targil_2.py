@@ -3,6 +3,11 @@ def main():
 
 
 def sum_numbers():
+    """
+    The function receives numbers from the user,
+    summarize them and print the sum.
+    :return:
+    """
     sum_of_numbers = 0
     first_number_flag = False
     while True:
@@ -19,6 +24,11 @@ def sum_numbers():
 
 
 def sum_numbers_faster():
+    """
+    The function receives in one time numbers as one string,
+    summarize them and print the sum.
+    :return:
+    """
     numbers = input("Please enter all numbers with a comma between each number and then press enter: \n")
     numbers = numbers.split(',')
     numbers = list(map(int, numbers))
