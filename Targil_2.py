@@ -1,5 +1,5 @@
 def main():
-    sum_numbers()
+    sum_numbers_faster()
 
 
 def sum_numbers():
@@ -16,6 +16,13 @@ def sum_numbers():
         else:
             first_number_flag = True
             sum_of_numbers += int(number)
+
+
+def sum_numbers_faster():
+    numbers = input("Please enter all numbers with a comma between each number and then press enter: \n")
+    numbers = numbers.split(',')
+    numbers = list(map(int, numbers))
+    print("The sum is : ", end=str(sum(numbers)))
 
 
 if __name__ == '__main__':
