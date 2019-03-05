@@ -5,13 +5,16 @@ def main():
         valid = atm.secertCodeCheck(codeNumber)
         if valid is True:
             atm.printMenu()
-            customerChoice = input()
-            customerChoice = int(customerChoice)
+            customerChoice = int(input())
             if customerChoice == 1:
                 atm.printAmountOfMoney()
+                continue
+            elif customerChoice == 2:
+                atm.withdrawMoney()
+                continue
+
         else:
             print("Wrong code number!")
-
 
 
 class ATM:
@@ -33,6 +36,27 @@ class ATM:
 
     def printAmountOfMoney(self):
             print("{0}{1}".format("Account balance is: ", self._amountOfMoney))
+
+    def withdrawMoney(self):
+        self.withdrawMoneyMenu()
+        self._customerChoice = int(input())
+        choice = self._customerChoice
+        if choice == 1:
+            self._amountOfMoney -= 20
+        elif choice == 2:
+            self._amountOfMoney -= 50
+        else:
+            otherAmount = input("Enter other amount to withdraw: ")
+            self._amountOfMoney -= otherAmount
+
+
+
+
+    def withdrawMoneyMenu(self):
+        print("{0}\n{1}\n{2}\n{3}".format("Please choose an amount of money to withdraw:",
+                                          "Press 1 to withdraw 20$",
+                                          "Press 2 to withdraw 50$",
+                                          "Press 3 to withdraw other amount"))
 
 
 if __name__ == '__main__':
