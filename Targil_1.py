@@ -4,6 +4,14 @@ class ATM:
         self._secretCode = secretCode
         self._amountOfMoney = amountOfMoney
 
+    def secertCodeCheck(self,secretCode):
+        if secretCode == self._secretCode:
+            return True
+        return False
+
+    
+
+
 
 
 
