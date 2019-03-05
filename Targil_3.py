@@ -10,6 +10,17 @@ def main():
         print("This is a tie!")
 
 
+def make_cols_list(games):
+    """
+    making a list of all the possible cols
+    to check who is the winner.
+    :param games:
+    :return:
+    """
+    for j in range(3):
+        games.append([games[0][j], games[1][j], games[2][j]])
+
+
 def make_slants_list(games):
     """
     making a list of all the possible slants
