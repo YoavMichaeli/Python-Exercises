@@ -1,6 +1,17 @@
 def main():
     id_number = input("Enter an id with 9 digits please :\n")
+    check_id(id_number)
 
+
+def check_id(id_num):
+    if valid_id_length(id_num):
+        digit_list = list(map(int, list(id_num)))
+        sum_digits = sum_digits_list(digit_list)
+        closest_tenth = round(sum_digits, -1)
+        if abs(closest_tenth - sum_digits) == digit_list[-1]:
+            print("The ID is valid!")
+            return
+    print("The ID is not valid")
 
 
 def sum_digits_list(digit_list):
