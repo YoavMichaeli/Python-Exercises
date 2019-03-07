@@ -1,7 +1,5 @@
 def main():
-    for i in range(2):
-        print(fibonacci(4))
-        print("***\n")
+        print(fibonacci(100))
 
 
 def caching_initialize_structure(function):
@@ -9,15 +7,10 @@ def caching_initialize_structure(function):
 
     def caching(*args):
         if args in cache_stock:
-            print(args)
-            print("Found")
             return cache_stock[args]
         else:
-            print(args)
-            print("Not found")
             result = function(*args)
             cache_stock[args] = result
-            print(cache_stock)
             return result
 
     return caching
