@@ -1,5 +1,8 @@
 def main():
-        print(fibonacci(100))
+        print(fibonacci(310))
+        print(fibonacci(300))
+        print(fibonacci(300))
+        print(fibonacci(290))
 
 
 def caching_initialize_structure(function):
