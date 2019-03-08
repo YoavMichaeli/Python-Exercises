@@ -105,6 +105,21 @@ class ATM:
         self.withdraw_money_menu()
         # Taking customer choice checking if it is possible and performing the action.
         customer_choice = input()
+        self.withdrawal_customer_choice(customer_choice)
+        # Checking if an action has made - means that the transaction made successfully.
+        if self._amount_of_money < current_amount_of_money:
+            print("Money withdrawal has been made successfully!\n")
+        elif customer_choice in ['1', '2', '3']:
+            print("You don't have enough money to make this transaction.\n")
+        else:
+            print("Wrong input!\n")
+
+    def withdrawal_customer_choice(self, customer_choice):
+        """
+        The function implements the customer request according to
+        the amount of money he can withdraw from his account.
+        :return:
+        """
         if customer_choice == '1' and self._amount_of_money - 20 >= 0:
             self._amount_of_money -= 20
         elif customer_choice == '2' and self._amount_of_money - 50 >= 0:
@@ -113,13 +128,6 @@ class ATM:
             other_amount = int(input("Enter other amount to withdraw: "))
             if self._amount_of_money - other_amount >= 0:
                 self._amount_of_money -= other_amount
-        # Checking if an action has made - means that the transaction made successfully.
-        if self._amount_of_money < current_amount_of_money:
-            print("Money withdrawal has been made successfully!\n")
-        elif customer_choice in ['1', '2', '3']:
-            print("You don't have enough money to make this transaction.\n")
-        else:
-            print("Wrong input!\n")
 
     def withdraw_money_menu(self):
         """
