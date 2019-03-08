@@ -7,7 +7,7 @@ def shrink_string(s):
     """
     The function shrinks the string for example:
     aaabbbc will turn to -> a3b3c1
-    :param s:
+    :param s: A string to shrink
     :return: temp_string - the new shrink string
     """
     # This variable will contain the shrink string.
