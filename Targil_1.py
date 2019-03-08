@@ -17,25 +17,11 @@ def start_atm_machine(atm):
         valid = atm.secret_code_check(code_number)
         if valid is True:
             atm.print_menu()
-            # Taking customer choice and making his decision.
-            customer_choice = input()
-            if customer_choice == '1':
-                atm.print_amount_of_money()
+            # Checks if the customer chose to quit.
+            choice = atm.customer_choice()
+            if choice:
                 continue
-            elif customer_choice == '2':
-                atm.withdraw_money()
-                continue
-            elif customer_choice == '3':
-                atm.change_secret_code()
-                continue
-            elif customer_choice == '4':
-                print("Thank you for choosing our ATM services, good bye!")
-                break
-            else:
-                print("Wrong input!\n")
-                atm.print_amount_of_money()
-                continue
-
+            break
         else:
             print("Wrong code number!\n")
 
@@ -71,6 +57,31 @@ class ATM:
                                                  "Press 2 to withdraw money from your account",
                                                  "Press 3 to change your secret code number",
                                                  "Press 4 to exit"))
+
+    def customer_choice(self):
+        """
+        This function taking care of the activity the customer wants to
+        make in his account.
+        :return: 1 - if the customer didn't choose to quit the ATM, 0 - if he did.
+        """
+        # Taking customer choice and making his decision.
+        customer_choice = input()
+        if customer_choice == '1':
+            self.print_amount_of_money()
+            return 1
+        elif customer_choice == '2':
+            self.withdraw_money()
+            return 1
+        elif customer_choice == '3':
+            self.change_secret_code()
+            return 1
+        elif customer_choice == '4':
+            print("Thank you for choosing our ATM services, good bye!")
+            return 0
+        else:
+            print("Wrong input!\n")
+            self.print_amount_of_money()
+            return 1
 
     def print_amount_of_money(self):
         """
