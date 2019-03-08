@@ -8,8 +8,8 @@ def mapping(f, ls):
     """
     The function receives a function and a list and
     runs the function with the list as an input.
-    :param f:
-    :param ls:
+    :param f: a pointer to function
+    :param ls: a list which sends as an input to f function
     :return:
     """
     for i in range(len(ls)):
@@ -18,9 +18,9 @@ def mapping(f, ls):
 
 def add(x):
     """
-    The function gets as an input a number, add to it 2 and returns
+    The function receives as an input a number, add to it 2 and returns
     the result.
-    :param x:
+    :param x: the number which the function receives
     :return: x +2
     """
     return x + 2
