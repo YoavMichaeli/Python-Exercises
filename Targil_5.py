@@ -6,7 +6,7 @@ def main():
 def check_id(id_num):
     """
     The function checks if id_num is a valid number.
-    :param id_num:
+    :param id_num: an id number received by the user to check.
     :return:
     """
     # Checks if the id has the right length.
@@ -27,8 +27,8 @@ def sum_digits_list(digit_list):
     The function calculates the sum of the digits in the list
     according to the way it needs to be calculate and returns
     the sum.
-    :param digit_list:
-    :return: sum_digit
+    :param digit_list: a list of the digits from the user to calculate.
+    :return: sum_digit - the result after calculating.
     """
     temp = 2
     mul_by = 1
