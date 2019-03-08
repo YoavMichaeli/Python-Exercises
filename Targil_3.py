@@ -4,6 +4,7 @@ def main():
             [2, 1, 1]]
 
     winner = win_check(game)
+    # Checks if winner is not 0
     if winner:
         print("The winner is player number: ", end=str(winner))
     else:
@@ -15,15 +16,19 @@ def win_check(games):
     making a list of all the possible rows(the rows lists already exist
     in the original game list), cols and slants
     to check who is the winner.
-    :param games:
+    :param games: A current game matrix input
     :return: the winner number
     """
+    # Making 3 possible cols list for checking winner
     make_cols_list(games)
+    # Making 3 possible slants list for checking winner
     make_slants_list(games)
 
+    # Searching in the games list of lists if a list has identical items.
     for game in games:
         if check_identical_items_list(game):
             return game[0]
+    # If there are no identical items return 0
     return 0
 
 
@@ -31,7 +36,7 @@ def make_cols_list(games):
     """
     making a list of all the possible cols
     to check who is the winner.
-    :param games:
+    :param games: A current game matrix input
     :return:
     """
     for j in range(3):
@@ -42,7 +47,7 @@ def make_slants_list(games):
     """
     making a list of all the possible slants
     to check who is the winner.
-    :param games:
+    :param games: A current game matrix input
     :return:
     """
     first_slant = []
@@ -60,7 +65,7 @@ def make_slants_list(games):
 def check_identical_items_list(ls):
     """
     counting if a number repeats 3 times to check winning.
-    :param ls:
+    :param ls: A current list from games lists
     :return: 1 - if number 1 won, 2 - if number 2 won, 0 - if no one won yet
     """
     if ls.count(1) == 3:
