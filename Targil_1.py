@@ -31,8 +31,8 @@ class ATM:
     def __init__(self, secret_code, amount_of_money):
         """
         Initialize function of class ATM
-        :param secret_code: the secret code number of the client(default 1234)
-        :param amount_of_money: the amount of money of the client(default 3000$)
+        :param secret_code: the secret code number of the client
+        :param amount_of_money: the amount of money of the client
         """
         self._secret_code = secret_code
         self._amount_of_money = amount_of_money
